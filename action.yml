@@ -24,5 +24,4 @@ runs:
     - ${{ inputs.user-email }}
   env:
     # GH_REPO_DEPLOY_KEY: ${{ secrets.GH_REPO_DEPLOY_KEY }}
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+    GITHUB_TOKEN: secrets.GITHUB_TOKEN
