@@ -23,5 +23,5 @@ runs:
     - ${{ inputs.destination-repository }}
     - ${{ inputs.user-email }}
   env:
-    GH_REPO_DEPLOY_KEY: secrets.GH_REPO_DEPLOY_KEY
+    GH_REPO_DEPLOY_KEY: ${{ secrets.GH_REPO_DEPLOY_KEY }}
     
