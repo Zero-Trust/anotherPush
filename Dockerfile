@@ -1,6 +1,6 @@
-FROM gentoo/stage3-amd64:latest
+FROM ubuntu:latest
 
-RUN emerge --sync && emerge dev-vcs/git
+RUN apt install -y git
 
 COPY entrypoint.sh /entrypoint.sh
 
