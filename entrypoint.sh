@@ -13,15 +13,6 @@ PARENTDIR="${GITHUB_REPO}/Notes"
 # ==================================
 
 
-# SSH Configuration ================
-# deploy_key="~/deploy_key.pem"
-# GIT_SSH_COMMAND="ssh -i ${deploy_key} -o StrictHostKeyChecking=no -F /dev/null"
-# 
-# echo "${GH_REPO_DEPLOY_KEY}" > "${deploy_key}"
-# chmod 600 "${deploy_key}"
-# ==================================
-
-
 # Setup Git Repository =============
 git clone "https://${API_TOKEN_GITHUB}@github.com/${GITHUB_USERNAME}/${GITHUB_REPO}.git"
 mkdir -p "${PARENTDIR}"
@@ -46,6 +37,15 @@ This is test.
 </body>
 </html>
 EOF
+# ==================================
+
+
+# SSH Configuration ================
+deploy_key="~/deploy_key.pem"
+GIT_SSH_COMMAND="ssh -i ${deploy_key} -o StrictHostKeyChecking=no -F /dev/null"
+
+echo "${GH_REPO_DEPLOY_KEY}" > "${deploy_key}"
+chmod 600 "${deploy_key}"
 # ==================================
 
 

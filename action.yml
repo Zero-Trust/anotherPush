@@ -17,8 +17,8 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-#  env:
-#    GH_REPO_DEPLOY_KEY: ${{ secrets.GH_REPO_DEPLOY_KEY }}
+  env:
+    GH_REPO_DEPLOY_KEY: ${{ secrets.GH_REPO_DEPLOY_KEY }}
   args:
     - ${{ inputs.upload-file }}
     - ${{ inputs.destination-username }}
