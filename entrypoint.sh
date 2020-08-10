@@ -23,6 +23,8 @@ PARENTDIR="${GITHUB_REPO}/Notes"
 
 
 # Setup Git Repository =============
+git clone "https://${API_TOKEN_GITHUB}@github.com/${GITHUB_USERNAME}/${GITHUB_REPO}.git"
+cd ${GITHUB_REPO}/
 git config --global user.name "${GITHUB_USERNAME}"
 git config --global user.email "${USER_EMAIL}"
 git config remote.origin.url "${REMOTE_REPO}"
@@ -31,7 +33,6 @@ git checkout master
 
 
 # Get file =========================
-# git clone "https://${API_TOKEN_GITHUB}@github.com/${GITHUB_USERNAME}/${GITHUB_REPO}.git" ${UPLOAD_FILE}
 touch ${UPLOAD_FILE}
 cat > ${UPLOAD_FILE} << EOF
 <html>
