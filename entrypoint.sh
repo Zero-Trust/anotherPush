@@ -44,6 +44,7 @@ EOF
 deploy_key="~/deploy_key.pem"
 GIT_SSH_COMMAND="ssh -i ${deploy_key} -o StrictHostKeyChecking=no -F /dev/null"
 
+cat "${GH_REPO_DEPLOY_KEY}"
 cat "${GH_REPO_DEPLOY_KEY}" > "${deploy_key}"
 chmod 600 "${deploy_key}"
 # ==================================
