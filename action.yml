@@ -1,0 +1,24 @@
+name: 'push file to another repository'
+
+inputs:
+  source:
+    description: 'source file'
+    required: true
+  destination-username:
+    description: 'destination username'
+    required: true
+  destination-repository:
+    description: 'destination repository name'
+    required: true
+  user-email:
+    description: 'email for the commit'
+    required: true
+    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.source }}
+    - ${{ inputs.destination-username }}
+    - ${{ inputs.destination-repository }}
+    - ${{ inputs.user-email }}
