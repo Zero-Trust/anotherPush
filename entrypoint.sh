@@ -15,7 +15,8 @@ git config --global user.email "${USER_EMAIL}"
 # Clone 
 git clone "https://${API_TOKEN_GITHUB}@github.com/${GITHUB_USERNAME}/${GITHUB_REPO}.git" ${UPLOAD_FILE}
 
-
+mv "$1" "${GITHUB_REPO}/$1"
+cd ${GITHUB_REPO}
 git add ${UPLOAD_FILE}
 git commit --message "Upload from https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA} by GitHub Actions"
 git push origin master
