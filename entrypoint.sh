@@ -15,9 +15,14 @@ git config --global user.email "${USER_EMAIL}"
 # Clone 
 git clone "https://${API_TOKEN_GITHUB}@github.com/${GITHUB_USERNAME}/${GITHUB_REPO}.git" ${UPLOAD_FILE}
 
-mv "${UPLOAD_FILE}" "${GITHUB_REPO}/${UPLOAD_FILE}"
-git add "${GITHUB_REPO}/${UPLOAD_FILE}"
-git commit --message "Upload from https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA} by GitHub Actions"
-git push origin master
+if [ -e "./${UPLOAD_FILE}" ]; then
+  mv "${UPLOAD_FILE}" "${GITHUB_REPO}/${UPLOAD_FILE}"
+
+  git add "${GITHUB_REPO}/${UPLOAD_FILE}"
+  git commit --message "Upload from https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA} by GitHub Actions"
+  git push origin master
+else
+	echo "No such file: ./${UPLOAD_FILE}"
+fi
 
 

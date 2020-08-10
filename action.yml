@@ -18,7 +18,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.source }}
+    - ${{ inputs.upload-file }}
     - ${{ inputs.destination-username }}
     - ${{ inputs.destination-repository }}
     - ${{ inputs.user-email }}
