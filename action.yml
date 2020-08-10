@@ -1,8 +1,8 @@
 name: 'push file to another repository'
 
 inputs:
-  source:
-    description: 'source file'
+  upload-file:
+    description: 'upload file name'
     required: true
   destination-username:
     description: 'destination username'
