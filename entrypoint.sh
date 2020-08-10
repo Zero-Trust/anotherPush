@@ -24,6 +24,8 @@ PARENTDIR="${GITHUB_REPO}/Notes"
 
 # Setup Git Repository =============
 git clone "https://${API_TOKEN_GITHUB}@github.com/${GITHUB_USERNAME}/${GITHUB_REPO}.git"
+mkdir -p "${PARENTDIR}"
+
 cd ${GITHUB_REPO}/
 git config --global user.name "${GITHUB_USERNAME}"
 git config --global user.email "${USER_EMAIL}"
@@ -49,10 +51,7 @@ EOF
 
 # Commit to Another Repository =====
 if [ -e "./${UPLOAD_FILE}" ]; then
-    mkdir -p "${PARENTDIR}" && cd ${PARENTDIR}
-    mv "${UPLOAD_FILE}" "${PARENTDIR}/${UPLOAD_FILE}"
-    
-    git add "${GITHUB_REPO}/${UPLOAD_FILE}"
+    git add "./${UPLOAD_FILE}"
     if ! git diff --cached --quiet; then
       git commit -m "Upload from https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA} by GitHub Actions"
       git push origin master
