@@ -22,7 +22,12 @@ jobs:
           git config --global user.email "62760177+Zero-Trust@users.noreply.github.com"
           git config remote.origin.url "git@github.com:Zero-Trust/pdf.git"
           git checkout master
-
+          
+      - name: Get file
+        run: |
+          touch main.pdf
+          echo "this is test" > main.pdf
+          
       - name: Commit to Another Repository
         env:
           GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
@@ -33,3 +38,4 @@ jobs:
             git pull origin master
             git push origin master
           fi
+          
