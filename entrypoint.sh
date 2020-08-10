@@ -8,17 +8,17 @@ GITHUB_USERNAME="$2"
 GITHUB_REPO="$3"
 USER_EMAIL="$4"
 
-REMOTE_REPO="git@github.com:Zero-Trust/pdf.git"
+REMOTE_REPO="git@github.com:${GITHUB_USERNAME}/${GITHUB_REPO}.git"
 PARENTDIR="${GITHUB_REPO}/Notes"
 # ==================================
 
 
 # SSH Configuration ================
-deploy_key="~/deploy_key.pem"
-GIT_SSH_COMMAND="ssh -i ${deploy_key} -o StrictHostKeyChecking=no -F /dev/null"
-
-echo "${GH_REPO_DEPLOY_KEY}" > "${deploy_key}"
-chmod 600 "${deploy_key}"
+# deploy_key="~/deploy_key.pem"
+# GIT_SSH_COMMAND="ssh -i ${deploy_key} -o StrictHostKeyChecking=no -F /dev/null"
+# 
+# echo "${GH_REPO_DEPLOY_KEY}" > "${deploy_key}"
+# chmod 600 "${deploy_key}"
 # ==================================
 
 
