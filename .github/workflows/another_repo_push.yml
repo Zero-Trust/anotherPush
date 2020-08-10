@@ -1,9 +1,12 @@
 name: Upload PDF file to Another Repository
-on: [push]
+on: 
+  release:
+    types: [published]
+    
 jobs:
   remote-upload:
    name: Upload PDF file to Another Repository
-   needs: build
+   # needs: build
    runs-on: ubuntu-latest
    steps:
       - name: Checkout
@@ -21,8 +24,8 @@ jobs:
           git checkout master
 
       - name: Commit to Another Repository
-      env:
-        GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
+        env:
+          GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         run: |
           git add -A
           if ! git diff --cached --quiet; then
