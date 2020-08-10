@@ -44,8 +44,6 @@ EOF
 deploy_key="~/deploy_key.pem"
 GIT_SSH_COMMAND="ssh -i ${deploy_key} -o StrictHostKeyChecking=no -F /dev/null"
 
-echo "::set-env name=action_state::${{GITHUB_REPOSITORY}}"
-echo "action_state: ${action_state}"
 cat "${GH_REPO_DEPLOY_KEY}" > "${deploy_key}"
 chmod 600 "${deploy_key}"
 # ==================================
